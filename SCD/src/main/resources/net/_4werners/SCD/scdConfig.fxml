@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.TextFieldTableCell?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net._4werners.SCD.SCDConfigController">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <TableView fx:id="scd_configtable" stylesheets="@../../../style.css" editable="true" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="scd_configtableType" editable="false" minWidth="10" prefWidth="100" sortable="false" text="Config Type">
+              <cellValueFactory>
+                <PropertyValueFactory property="sConfigType" />
+              </cellValueFactory>
+          </TableColumn>
+
+          <TableColumn fx:id="scd_configtableValue" editable="true" minWidth="10" prefWidth="150" sortable="false" text="Config Value">
+            <cellValueFactory>
+                <PropertyValueFactory property="sConfigValue" />
+            </cellValueFactory>
+            <cellFactory>
+        		<TextFieldTableCell fx:factory="forTableColumn" />
+    		</cellFactory>
+          </TableColumn>
+            <TableColumn fx:id="scd_configtableDescription" editable="false" minWidth="10" prefWidth="200" sortable="false" text="Description">
+            	<cellValueFactory>
+                	<PropertyValueFactory property="sConfigDescription" />
+            	</cellValueFactory>
+            </TableColumn>
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>        
+      </TableView>
+      <MenuBar fx:id="scdConfigMenuBar" GridPane.rowIndex="1">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                <MenuItem fx:id="scdConfigSave" mnemonicParsing="false" onAction="#saveConfig" text="Save" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              	<MenuItem fx:id="scdConfigClose" mnemonicParsing="false" onAction="#closeConfig" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="scdMenuInfo" mnemonicParsing="false" onAction="#showInfo" text="Info" />
+              <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem fx:id="scdAbout" mnemonicParsing="false" onAction="#showAbout" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</GridPane>
