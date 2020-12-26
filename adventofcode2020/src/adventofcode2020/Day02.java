@@ -62,7 +62,7 @@ public class Day02 {
 		String input="";
 		ArrayList<String> temp = new ArrayList<String>();
     	
-    	try (BufferedReader br = new BufferedReader(new FileReader("day02.txt"))){
+    	try (BufferedReader br = new BufferedReader(new FileReader(".\\input\\day02.txt"))){
             while ((input = br.readLine()) != null) {
                 if (input.trim().length() > 0) {
                 	temp.add(input);

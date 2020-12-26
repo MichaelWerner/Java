@@ -51,7 +51,7 @@ public class Day01 {
 		String input="";
 		ArrayList<Integer> temp = new ArrayList<Integer>();
     	
-    	try (BufferedReader br = new BufferedReader(new FileReader("day01.txt"))){
+    	try (BufferedReader br = new BufferedReader(new FileReader(".\\input\\day01.txt"))){
             while ((input = br.readLine()) != null) {
                 if (input.trim().length() > 0) {
                 	temp.add(Integer.parseInt(input));

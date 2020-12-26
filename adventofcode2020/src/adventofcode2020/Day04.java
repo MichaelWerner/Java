@@ -106,7 +106,7 @@ public class Day04 {
     	String sTemp = "";
     	int iValid = 0;
     	
-    	try (BufferedReader br = new BufferedReader(new FileReader("passports.txt"))){
+    	try (BufferedReader br = new BufferedReader(new FileReader(".\\input\\day04.txt"))){
             while ((input = br.readLine()) != null) {
                 if (input.trim().length() > 0) {
                 	sTemp = sTemp + " " + input;

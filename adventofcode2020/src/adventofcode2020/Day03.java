@@ -17,7 +17,7 @@ public class Day03 {
     	long iProduct = 1;
     	int[][] iSlopes={ {1,1}, {3,1}, {5,1}, {7,1}, {1,2} };
     	
-    	try (BufferedReader br = new BufferedReader(new FileReader("trees.txt"))){
+    	try (BufferedReader br = new BufferedReader(new FileReader(".\\input\\day03.txt"))){
             while ((input = br.readLine()) != null) {
                 if (input.trim().length() > 0) {
                 	sTemp.add(input);

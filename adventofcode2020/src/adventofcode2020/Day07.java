@@ -64,7 +64,7 @@ public class Day07 {
     	String input;
     	ArrayList<String> sBags = new ArrayList<String>();
     	
-    	try (BufferedReader br = new BufferedReader(new FileReader("bags.txt"))){
+    	try (BufferedReader br = new BufferedReader(new FileReader(".\\input\\day07.txt"))){
             while ((input = br.readLine()) != null) {
                 if (input.trim().length() > 0) {
                 	sBags.add(input);

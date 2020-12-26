@@ -62,7 +62,7 @@ public class Day06 {
     	int iTotalEveryone = 0;
     	int iTotalAnyone = 0;
     	
-    	try (BufferedReader br = new BufferedReader(new FileReader("customs.txt"))){
+    	try (BufferedReader br = new BufferedReader(new FileReader(".\\input\\day06.txt"))){
             while ((input = br.readLine()) != null) {
                 if (input.trim().length() > 0) {
                 	sTemp.add(input);
