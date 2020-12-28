@@ -63,7 +63,6 @@ public class Day09 {
 	public static void main(String[] args) {
 		String input="";
 		List<Long> iNumbers = new ArrayList<Long>();
-		int iAcc = 0;
 		
     	try (BufferedReader br = new BufferedReader(new FileReader(".\\input\\day09.txt"))){
             while ((input = br.readLine()) != null) {
