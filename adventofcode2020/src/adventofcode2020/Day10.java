@@ -11,15 +11,15 @@ public class Day10 {
 	
 	public static long countPartial(List<Integer> iNumbers, int iStart, int iEnd) {
 		long iCombinations = 0;
-		
+		System.out.println("Start: " + iStart + " End: " + iEnd);
 		if(iEnd - iStart == 1) {
 			iCombinations = 1;
 		}
 		else {
-			for(int i = iStart, j = i; i <= iEnd; i++) {
-				j++;
+			for(int i = iStart; i <= iEnd; i++) {
+				int j = i + 1;
 				if(j <= iEnd) {
-					if(iNumbers.get(j) - iNumbers.get(i) <= 2 && i < j) {
+					if(iNumbers.get(j) - iNumbers.get(i) <= 2) {
 						iCombinations++;
 						iCombinations += countPartial(iNumbers, j, iEnd - 1);
 					}//if iNumbers
@@ -28,7 +28,7 @@ public class Day10 {
 		}// else
 		
 		return iCombinations;
-	}
+	}// countPartial
 	
 	public static long countCombinations(List<Integer> iNumbers) {
 		//inspired by: https://github.com/romellem/advent-of-code/pull/139
@@ -38,10 +38,16 @@ public class Day10 {
 		for(int i = 0; i < iNumbers.size(); i++) {
 			int j = i + 1;
 			if(j < iNumbers.size()) {
-				if(iNumbers.get(j) - iNumbers.get(i) == 3 && iStart < i) {
+				if(iNumbers.get(j) - iNumbers.get(i) == 3) {
 					//i is now the end of the partial list
 					//get the combinations for this part of the list 
-					iCombinations = countPartial(iNumbers, iStart, i);
+					
+					if(iStart == i) { //when there are consecutive jumps of 3, like 38, 41, 44
+						iCombinations = 1;
+					}
+					else {
+						iCombinations = countPartial(iNumbers, iStart, i);
+					}
 					
 					iTotalCombinations = iTotalCombinations * iCombinations;
 					System.out.println("Start: " + iStart + ", End: " + i + ", Combinations: " + iCombinations + ", Total: " + iTotalCombinations);
@@ -81,7 +87,7 @@ public class Day10 {
 		//add the outlet
 		iNumbers.add(0);
 		
-    	try (BufferedReader br = new BufferedReader(new FileReader(".\\input\\day10.txt"))){
+    	try (BufferedReader br = new BufferedReader(new FileReader(".\\input\\day10a.txt"))){
             while ((input = br.readLine()) != null) {
                 if (input.trim().length() > 0) {
                 	iNumbers.add(Integer.parseInt(input));
