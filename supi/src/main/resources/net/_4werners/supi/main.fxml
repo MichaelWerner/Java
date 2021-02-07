@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.TextFieldTableCell?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net._4werners.supi.MainController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#addEntry" text="Add..." />
+                  <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <StackPane>
+         <children>
+            <TableView fx:id="tblSupplies" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="756.0">
+                    <columns>
+                      <TableColumn editable="false" prefWidth="175.0" text="Artikel">
+                  	    <cellValueFactory>
+                  	      <PropertyValueFactory property="sPart" />
+                  	    </cellValueFactory>
+                      </TableColumn>    
+                      
+                      <TableColumn editable="false" prefWidth="150.0" text="Kategorie">
+                  	    <cellValueFactory>
+                  	      <PropertyValueFactory property="sType" />
+                  	    </cellValueFactory>
+                      </TableColumn>    
+                      
+                      <TableColumn editable="false" prefWidth="120.0" text="Ort">
+                  	    <cellValueFactory>
+                  	      <PropertyValueFactory property="sPlace" />
+                  	    </cellValueFactory>
+                      </TableColumn>    
+                  
+                      <TableColumn editable="false" prefWidth="45.0" text="Fach">
+                  	    <cellValueFactory>
+                  	      <PropertyValueFactory property="sShelf" />
+                  	    </cellValueFactory>
+                      </TableColumn>    
+                  
+                      <TableColumn editable="false" prefWidth="75.0" text="Behaelter">
+                  	    <cellValueFactory>
+                  	      <PropertyValueFactory property="sContainer" />
+                  	    </cellValueFactory>
+                      </TableColumn>    
+                  
+                      <TableColumn fx:id="colQTY" editable="true" onEditCommit="#updateQty" prefWidth="35.0" text="Ist">
+                  	    <cellValueFactory>
+                  	      <PropertyValueFactory property="sQuantity" />
+                  	    </cellValueFactory>
+                  	    <cellFactory>
+                        	<TextFieldTableCell fx:factory="forTableColumn" />
+                      	</cellFactory>
+                      </TableColumn>
+                  <TableColumn prefWidth="75.0" text="Actions">
+
+                  </TableColumn>    
+                  
+                    </columns>
+                  </TableView>
+         </children>
+      </StackPane>
+   </children>
+</VBox>
