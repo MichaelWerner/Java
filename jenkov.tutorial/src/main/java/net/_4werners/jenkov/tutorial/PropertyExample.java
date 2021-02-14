@@ -20,6 +20,8 @@ public class PropertyExample extends Application {
 	    Pane pane = new Pane();
 
 	    ReadOnlyDoubleProperty widthProperty = pane.widthProperty();
+	    
+	    //anonymous class
 	    widthProperty.addListener( new ChangeListener<Number> (){
 	      @Override
 	      public void changed(
@@ -33,6 +35,7 @@ public class PropertyExample extends Application {
 
 
 	    DoubleProperty prefWidthProperty = pane.prefWidthProperty();
+	    //lambda function
 	    prefWidthProperty.addListener(
 	      (ObservableValue<? extends Number> prop,
 	        Number oldVal, Number newVal) -> {
